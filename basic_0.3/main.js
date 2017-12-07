@@ -15,6 +15,7 @@ window.onload = function () {
     width = ctx.canvas.width; height = ctx.canvas.height;
 
 
+
     document.addEventListener("keydown", keydown, false);
     document.addEventListener("keyup", keyup, false);
     document.addEventListener("mousedown", mousedown, false);
@@ -103,17 +104,28 @@ function random(min, max) {
 }
 
 //---------------------
-function CreateDisplay(id, width, height) {
+function CreateDisplay(id, width, height, border) {
     let canvas = document.createElement("canvas");
-    canvas.id = id;
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.cssText = [
+    let style_arr = [
         "display: block;",
         "margin: 0 auto;",
         "background: #FFF;",
-        "border:1px solid #000;"
-    ].join("");
+        "padding: 0;",
+        "display: block;"
+    ];
+    canvas.id = id;
+    canvas.width = width | 0;
+    canvas.height = height | 0;
+
+    if (border) style_arr.push("border:1px solid #000;");
+
+    if (!width && !height) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    canvas.style.cssText = style_arr.join("");
+
     document.body.appendChild(canvas);
 
     return canvas.getContext("2d");
