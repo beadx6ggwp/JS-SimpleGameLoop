@@ -9,6 +9,7 @@ var animation,
 var ctx_font = "Consolas",
     ctx_fontsize = 10,
     ctx_backColor = "#777";
+var keys = {}, mousePos = {};
 
 window.onload = function () {
     ctx = CreateDisplay("myCanvas", 800, 600);
@@ -27,24 +28,6 @@ window.onload = function () {
 }
 
 // ----------------------------------------------------------
-
-var keys = {}, mousePos = {};
-function main() {
-    console.log("Start");
-
-    window.requestAnimationFrame(mainLoop);
-    //mainLoop();
-}
-
-
-function update(dt) {
-
-}
-
-function draw(ctx) {
-
-}
-
 function mainLoop(timestamp) {
     Timesub = timestamp - lastTime;// get sleep
     DeltaTime = Timesub / 1000;
@@ -68,6 +51,22 @@ function mainLoop(timestamp) {
     } else {
         // over
     }
+}
+
+function main() {
+    console.log("Start");
+
+    window.requestAnimationFrame(mainLoop);
+    //mainLoop();
+}
+
+
+function update(dt) {
+
+}
+
+function draw(ctx) {
+
 }
 //---evnt---
 function keydown(e) {
