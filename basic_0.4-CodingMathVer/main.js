@@ -8,11 +8,11 @@ var animation,
     loop = true;
 var ctx_font = "Consolas",
     ctx_fontsize = 10,
-    ctx_backColor = "#777";
+    ctx_backColor = "#222";
 var keys = {}, mousePos = {};
 
 window.onload = function () {
-    ctx = CreateDisplay("myCanvas", 800, 600);
+    ctx = CreateDisplay("myCanvas");
     width = ctx.canvas.width; height = ctx.canvas.height;
 
 
